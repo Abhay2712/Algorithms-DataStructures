@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>>res;
-        vector<int>ds;
         subfun(res,nums,0);
         return res;
     }
