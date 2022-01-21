@@ -9,48 +9,30 @@ public:
             board[i]=s;
         }
         //till here
-        subfun(res,board,0,n);
+        vector<int>lrow(n,0),udog(2*n-1,0),ldog(2*n-1,0);
+        subfun(res,board,0,n,lrow,udog,ldog);
         return res;
         
     }
     
-    void subfun(vector<vector<string>>&res,vector<string>&board,int col,int n){
+    void subfun(vector<vector<string>>&res,vector<string>&board,int col,int n,vector<int>&lrow,vector<int>&udog,vector<int>&ldog){
         if(col==n){
             res.push_back(board);
             return;
         }
         for(int row=0;row<n;row++){
-            if(safe(row,col,board,n)){
+            if(lrow[row]==0 &&ldog[row+col]==0 && udog[n-1+col-row]==0){
                 board[row][col]='Q';
-                subfun(res,board,col+1,n);
+                lrow[row]=1;
+                ldog[row+col]=1;
+                udog[n-1+col-row]=1;
+                subfun(res,board,col+1,n,lrow,udog,ldog);
                 board[row][col]='.';
+                lrow[row]=0;
+                ldog[row+col]=0;
+                udog[n-1+col-row]=0;
             }
         }
     }
     
-    bool safe(int row,int col,vector<string>&board,int n){
-        int a=row;
-        int b=col;
-        while(row>=0 && col>=0){
-            if(board[row][col]=='Q') return false;
-            row--;
-            col--;
-        }
-        
-        row=a;
-        col=b;
-        while(col>=0){
-            if(board[row][col]=='Q') return false;
-            col--;
-        }
-        
-        row=a;
-        col=b;
-        while(row<n && col>=0){
-            if(board[row][col]=='Q') return false;
-            row++;
-            col--;
-        }
-        return true;
-    }
 };
