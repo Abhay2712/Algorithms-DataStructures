@@ -16,7 +16,7 @@ public:
         }
         for(int i=ind;i<s.size();i++){
             if(isPal(s,ind,i)){
-                ds.push_back(s.substr(ind,i-ind+1));
+                ds.push_back(s.substr(ind,i-ind+1)); //i-ind+1 to get the size of the remaining substring
                 subfun(res,ds,s,i+1);
                 ds.pop_back();
             }
