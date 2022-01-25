@@ -8,7 +8,7 @@ public:
         int p1 = 0;
         int p2 = 1;
         while(p2<arr.size()){
-            if(ans[p1][0]<=arr[p2][0] && ans[p1][1]>= arr[p2][1]){
+            if(ans[p1][1]>= arr[p2][1]){
                 p2++;
             }
             else if(ans[p1][1] >= arr[p2][0]){
