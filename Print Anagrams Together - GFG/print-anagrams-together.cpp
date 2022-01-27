@@ -17,13 +17,9 @@ class Solution{
         unordered_map<string,vector<string>>map;
         for(int i=0;i<n;i++){
            sort(arr[i].begin(),arr[i].end()); 
-           if(map.find(arr[i])==map.end()){
-               map[arr[i]]={sl[i]};
+           map[arr[i]].push_back(sl[i]);
            }
-           else{
-               map[arr[i]].push_back(sl[i]);
-           }
-        }
+        
         vector<vector<string>>res;
         for(auto i:map){
             res.push_back(i.second);
