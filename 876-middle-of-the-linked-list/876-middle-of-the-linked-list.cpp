@@ -12,12 +12,8 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         ListNode *p=head,*q=head;
-        while(q!=NULL){
-            q=q->next;
-            if(q==NULL){
-                break;
-            }
-            q=q->next;
+        while(q!=NULL && q->next!=NULL){ //slow and fast pointer approach
+            q=q->next->next;
             p=p->next;
         }
         return p;
