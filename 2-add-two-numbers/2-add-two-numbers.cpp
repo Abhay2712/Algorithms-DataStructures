@@ -24,7 +24,7 @@ public:
             
             sum+=carry;
             ListNode *temp=new ListNode(sum%10);
-            temp->next=NULL;
+            // temp->next=NULL;
             carry=(sum)/10;
             start->next=temp;
             start=start->next;
