@@ -13,28 +13,8 @@ class Solution {
 public:
     int maxDepth(TreeNode* root) {
         if(!root) return 0;
-        int max=1,count=1;
-        traverse(root,count,max);
-        return max;
-        
+        int lh=maxDepth(root->left);
+        int rh=maxDepth(root->right);
+        return 1+max(lh,rh);
     }
-    
-    void traverse(TreeNode *root,int &count,int &max){
-        if(!root) return;
-        
-        if(root->left){
-            count++;
-            if(max<count) max=count;
-            traverse(root->left,count,max);
-            count--;
-        }
-        if(root->right){
-            count++;
-            if(max<count) max=count;
-            traverse(root->right,count,max);
-            count--;
-        }
-    }
-    
-    
 };
