@@ -11,7 +11,7 @@ class Solution {
 public:
     void markParents(TreeNode *root,unordered_map<TreeNode*,TreeNode*>&parent,TreeNode *target){
         queue<TreeNode*>q;
-        q.push(root);
+        q.push(root);       //graph question done using trees
         while(!q.empty()){
             TreeNode *curr=q.front();
             q.pop();
