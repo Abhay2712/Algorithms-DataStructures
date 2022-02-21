@@ -15,6 +15,7 @@ public:
         if(!root) return 0;
         int lh=leftheight(root);
         int rh=rightheight(root);
+        // cout<<lh<<" "<<rh<<"\n";
         if (lh==rh) return(1<<lh)-1;
         return 1+countNodes(root->left)+countNodes(root->right);
     }
