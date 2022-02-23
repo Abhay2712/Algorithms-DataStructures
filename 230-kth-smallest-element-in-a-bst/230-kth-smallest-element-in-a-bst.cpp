@@ -26,8 +26,8 @@ public:
         count++;
         if(count==k) {
             res=root->val;
+            return;
         }
-        
         subfun(root->right,k,count,res);
         
     }
