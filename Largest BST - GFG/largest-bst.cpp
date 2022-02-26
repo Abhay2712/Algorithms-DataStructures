@@ -112,7 +112,7 @@ class Solution{
     
      vector<int> solve(Node *root){
        if(!root) return {1,0,INT_MAX,INT_MIN};
-       if(!root->left and !root->right) return {1,1,root->data,root->data};
+    //   if(!root->left and !root->right) return {1,1,root->data,root->data};
        vector<int> l=solve(root->left);
        vector<int> r=solve(root->right);
        if(l[0] and r[0]){
