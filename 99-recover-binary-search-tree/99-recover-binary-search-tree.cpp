@@ -15,6 +15,7 @@ public:
     TreeNode *prev;
     TreeNode *middle;
     TreeNode *last;
+    
     void recoverTree(TreeNode* root) {
         first=middle=last=NULL;
         prev=new TreeNode(INT_MIN);
@@ -22,11 +23,12 @@ public:
         if(first && last) swap(first->val,last->val);
         else swap(first->val,middle->val);
     }
+    
     void inorder(TreeNode *root){
         if(!root) return;
         
         inorder(root->left);
-        if(prev && (root->val<prev->val))
+        if((root->val<prev->val))
         {
             if(!first){
                 first=prev;
