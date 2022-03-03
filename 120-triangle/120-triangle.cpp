@@ -24,7 +24,7 @@ public:
 //         dp[n-1][j] = triangle[n-1][j];
 //     }
     
-//     for(int i=n-2; i>=0; i--){
+//     for(int i=n-2; i>=0; i--){   //here we go from n to 0
 //         for(int j=i; j>=0; j--){
             
 //             int down = triangle[i][j]+dp[i+1][j];
