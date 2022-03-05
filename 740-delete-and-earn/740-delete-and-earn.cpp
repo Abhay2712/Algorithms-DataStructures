@@ -9,18 +9,15 @@ public:
         for (auto &num: nums) {
             map[num] += num;
         }
-        
-        int one = map[0];
-        int two = max(one, map[1]);
+        int a = map[0];
+        int b = max(a,map[1]);
         
         for (int i = 2; i < n; i++) {
-            int cur = max(two, one + map[i]);
-            one = two;
-            two = cur;
+            int cur = max(b,a+map[i]);
+            a=b;
+            b=cur;
             
         }
-        
-        return max(one, two);
-        
+        return max(a,b);     
     }
 };
