@@ -1,14 +1,26 @@
 class Solution {
 public:
     int deleteAndEarn(vector<int>& nums) {
-		vector<int> freq(100001, 0);
-		vector<int> dp(100001, 0);
+		int n = 10001;    
+        if (nums.size() == 1) return nums[0];
 
-		for (auto i : nums) freq[i]++;
-		dp[1] = freq[1];
-
-		for (int i=2; i<100001; i++)
-				dp[i] = max(dp[i-2]+i*freq[i], dp[i-1]);
-		return dp[100000];
+        vector<int> map(n, 0);
+        
+        for (auto &num: nums) {
+            map[num] += num;
+        }
+        
+        int one = map[0];
+        int two = max(one, map[1]);
+        
+        for (int i = 2; i < n; i++) {
+            int cur = max(two, one + map[i]);
+            one = two;
+            two = cur;
+            
+        }
+        
+        return max(one, two);
+        
     }
 };
