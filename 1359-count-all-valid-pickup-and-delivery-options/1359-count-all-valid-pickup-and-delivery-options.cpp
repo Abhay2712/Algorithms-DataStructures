@@ -8,6 +8,6 @@ public:
             res%=mod;
         }
         
-        return res%mod;
+        return res;
     }
 };
