@@ -6,9 +6,9 @@ public:
         
         //edge cases
         if(total-target<0) return 0;
-        if((total-target)%2==1) return 0;
+        if((total-target)%2==1) return 0;   //NO FRACTIONS
     
-        int s2 = (total-target)/2;
+        int s2 = (total-target)/2;      //S1-S2=TARGET ->TOTAL-S2-S2=TARGET-> S2=TOTAL-TARGET/2
         vector<vector<int>>dp(n,vector<int>(s2+1,-1));
         
         return subfun(nums,s2,n-1,dp);
@@ -30,6 +30,6 @@ public:
         }
             
         
-        return dp[i][target]=notTake+taken;;
+        return dp[i][target]=notTake+taken;
     }
 };
