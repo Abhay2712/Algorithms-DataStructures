@@ -13,7 +13,6 @@ public:
             return 0;
         }
         
-        
         if(dp[i][j]!=-1) return dp[i][j];
         int pick=0,notPick=0;
         
@@ -23,8 +22,6 @@ public:
         
         else{
             return dp[i][j]=max(subfun(str1,str2,i-1,j,dp),subfun(str1,str2,i,j-1,dp));
-        }
-        
-        // return dp[i][j]=max(pick,notPick);
+        }        
     }
 };
