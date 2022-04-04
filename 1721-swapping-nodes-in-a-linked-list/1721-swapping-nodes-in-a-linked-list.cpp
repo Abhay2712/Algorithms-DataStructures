@@ -22,8 +22,6 @@ public:
             temp2=temp2->next;
         }
         int value=temp2->val;
-        cout<<temp2->val;
-        cout<<temp1->val;
         temp2->val=temp1->val;
         temp1->val=value;
         
