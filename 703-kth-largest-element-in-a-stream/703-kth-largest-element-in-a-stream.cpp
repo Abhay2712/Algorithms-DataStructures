@@ -13,7 +13,6 @@ public:
     
     int add(int val) {
         pq.push(val);
-        cout<<pq.top();
         if(pq.size()>size) pq.pop();
         return pq.top();
     }
