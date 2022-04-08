@@ -1,6 +1,7 @@
 class KthLargest {
 public:
-   priority_queue<int, vector<int>, greater<int>> pq;
+   priority_queue<int, vector<int>, greater<int>> pq; 
+    //define the heap in the descending order
     int size;
     KthLargest(int k, vector<int> nums) {
         size=k;
@@ -12,6 +13,7 @@ public:
     
     int add(int val) {
         pq.push(val);
+        cout<<pq.top();
         if(pq.size()>size) pq.pop();
         return pq.top();
     }
