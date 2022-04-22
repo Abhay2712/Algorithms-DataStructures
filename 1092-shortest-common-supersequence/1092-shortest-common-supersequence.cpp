@@ -18,13 +18,11 @@ public:
   int i = n;
   int j = m;
 
-  int index = len - 1;
   string ans = "";
 
   while (i > 0 && j > 0) {
     if (text1[i - 1] == text2[j - 1]) {
       ans += text1[i-1];
-      index--;
       i--;
       j--;
     } else if (dp[i - 1][j] > dp[i][j - 1]) {
