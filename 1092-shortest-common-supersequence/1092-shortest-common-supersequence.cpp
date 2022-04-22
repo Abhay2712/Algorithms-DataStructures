@@ -14,10 +14,8 @@ public:
                     dp[i][j]=max(dp[i-1][j], dp[i][j-1]);
             }
         }
-        int len = dp[n][m];
   int i = n;
   int j = m;
-
   string ans = "";
 
   while (i > 0 && j > 0) {
