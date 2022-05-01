@@ -36,13 +36,6 @@ public:
             i--;
             j--;
         }
-        // while(j>=0){
-        //     ans2+=t[j--];
-        // }
-        // while(i>=0){
-        //     ans1+=s[i--];
-        // }
-        cout<<ans1<<"1"<<ans2<<"2"<<'\n';
         return ans1==ans2;
     }
 };
