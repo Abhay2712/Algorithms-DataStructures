@@ -6,13 +6,10 @@ public:
         int prof=0;
         int max=0;
         for(int i=1;i<n;i++){
-            if(arr[i]<min){
-                min=arr[i];  
-            }
-            else{
-                prof+=arr[i]-min;
-                min=arr[i];
-            }
+            if(arr[i]>min){
+                prof+=arr[i]-min;  
+            }   
+            min=arr[i];    
         }
         return prof;
     }
