@@ -4,7 +4,7 @@ public:
         vector<vector<int>>adj(n+1);
         for(auto i:dislikes){
             adj[i[0]].push_back(i[1]);
-            adj[i[1]].push_back(i[0]);
+            adj[i[1]].push_back(i[0]);  //create the adjacency vector for the graph
         }
         
         if(check(adj,n)) return 1;
@@ -12,8 +12,8 @@ public:
     }
     
     bool check(vector<vector<int>>&adj,int n){
-        vector<int>color(n+1,-1);
-        for(int i=1;i<=n;i++){
+        vector<int>color(n+1,-1);   
+        for(int i=1;i<=n;i++){      //loop for all the components of the graph
             if(color[i]==-1){
                 if(!bfs(i,adj,color)){
                     return false;
@@ -26,7 +26,7 @@ public:
     bool bfs(int i,vector<vector<int>>&adj,vector<int>&color){
         queue<int>q;
         q.push(i);
-        color[i]=1;
+        color[i]=1;             //bfs for each component
         while(!q.empty()){
             int a=q.front();
             q.pop();
