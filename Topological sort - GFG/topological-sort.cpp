@@ -8,11 +8,11 @@ class Solution
 	public:
 	stack<int>st;
 	//Function to return list containing vertices in Topological order. 
-	void dfs(int i,int v,vector<int> adj[],vector<int>&visited){
+	void dfs(int i,vector<int> adj[],vector<int>&visited){
 	    if(visited[i]==-1){
 	        visited[i]=0;
 	        for(auto a:adj[i]){
-	            dfs(a,v,adj,visited);
+	            dfs(a,adj,visited);
 	        }
 	        st.push(i);
 	    }
@@ -24,7 +24,7 @@ class Solution
 	    vector<int>visited(v,-1);
 	    for(int i=0;i<v;i++){
 	        if(visited[i]==-1){
-	            dfs(i,v,adj,visited);
+	            dfs(i,adj,visited);
 	        }
 	    }
 	    vector<int>ans;
