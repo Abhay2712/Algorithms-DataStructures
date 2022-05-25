@@ -4,15 +4,15 @@ public:
 	
     int dfs(vector<vector<pair<int, int>>>& adj, int src, int dst, int k) {
         if (src == dst) return 0;
-        if (k <= -1) return INT_MAX;
+        if (k<0) return INT_MAX;
         
         if (dp[src][k] != -1) return dp[src][k];
         
         int ans = INT_MAX;
-        for (auto child : adj[src]) {
-            int res = dfs(adj, child.first, dst, k-1);
+        for (auto i : adj[src]) {
+            int res = dfs(adj, i.first, dst, k-1);
             if (res != INT_MAX)
-                ans = min(ans, child.second +res);
+                ans = min(ans, i.second+res);
         }
         
         return dp[src][k] = ans;
