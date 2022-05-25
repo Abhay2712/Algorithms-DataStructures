@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[10001][101];
+    int dp[101][101];
 	
     int dfs(vector<vector<pair<int, int>>>& graph, int src, int dst, int k) {
         if (src == dst) return 0;
