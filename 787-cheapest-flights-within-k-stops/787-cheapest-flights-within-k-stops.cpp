@@ -20,11 +20,11 @@ public:
     
       int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int K) {
         memset(dp, -1, sizeof dp);
-        // Build the graph
         vector<vector<pair<int, int>>> graph(n);
         for (auto vec : flights) {
-            graph[vec[0]].emplace_back(make_pair(vec[1], vec[2]));
+            graph[vec[0]].push_back(make_pair(vec[1], vec[2]));
         }
+          
         int ans = dfs(graph, src, dst, K);  // or make the dfs call
         if (ans == INT_MAX)
             return -1;
