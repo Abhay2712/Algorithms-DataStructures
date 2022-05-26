@@ -5,7 +5,6 @@ public:
         while(n>0){
             count+=n%2;
             n/=2;
-            cout<<n;
         }
         return count;
     }
