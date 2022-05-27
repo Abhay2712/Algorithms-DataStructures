@@ -8,10 +8,8 @@ public:
         int i=0,j=1;
         int size=0;
         while(i<=j && j<s.size()){
-            cout<<i<<j<<"\n";
             if(map[s[j]]==0){
                 map[s[j]]=1;
-                j++;
             }
             else{
                 while(s[i]!=s[j])
@@ -20,8 +18,8 @@ public:
                     i++;
                 }
                 i++;
-                j++;
             }
+            j++;
             size=max(size,j-i);
             
         }
