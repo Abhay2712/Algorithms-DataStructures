@@ -2,12 +2,10 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>>res;
-        sort(nums.begin(),nums.end());
         if(nums.size()<3) return {};
+        sort(nums.begin(),nums.end());
         if(nums[0] > 0) return {};
-        
         unordered_map<int,int>map;
-        vector<int>temp;
         for(int i=0;i<nums.size();i++){
             map[-nums[i]]=i;
         }
@@ -16,8 +14,7 @@ public:
             if(nums[i]>0) break;
             for(int j=i+1;j<n-1;j++){
                 if(map[nums[i]+nums[j]] && map[nums[i]+nums[j]]>j){
-                    temp={nums[i],nums[j],-nums[i]-nums[j]};
-                    res.push_back(temp);
+                    res.push_back({nums[i],nums[j],-nums[i]-nums[j]});
                 }
                 j=map[-nums[j]];
             }
