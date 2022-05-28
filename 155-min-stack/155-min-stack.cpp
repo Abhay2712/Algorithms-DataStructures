@@ -2,7 +2,7 @@ class MinStack {
 public:
     vector<int>st;
     MinStack() {
-        st.resize(1,INT_MAX);
+        st.resize(0);
     }
     
     void push(int val) {
