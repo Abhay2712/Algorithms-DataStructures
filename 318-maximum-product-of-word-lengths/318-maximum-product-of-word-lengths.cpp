@@ -6,6 +6,8 @@ public:
     }
     
     int maxProduct(vector<string>& words) {
+        
+    sort(words.begin(),words.end(),compare);
 	int n = size(words), ans = 0;
 	vector<bitset<26> > chars(n);
 	for(int i = 0; i < n; i++) {
