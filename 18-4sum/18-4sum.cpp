@@ -22,19 +22,15 @@ public:
                     else if (two_sum > target_2) back--;
                 
                     else {
-                    
-                        vector<int> quadruplet(4, 0);
-                        quadruplet[0] = num[i];
-                        quadruplet[1] = num[j];
-                        quadruplet[2] = num[front];
-                        quadruplet[3] = num[back];
                         res.push_back({num[i],num[j],num[front],num[back]});
+                        int f=num[front];
+                        int b=num[back];
                     
                         // Processing the duplicates of number 3
-                        while (front < back && num[front] == quadruplet[2]) ++front;
+                        while (front < back && num[front] == f) ++front;
                     
                         // Processing the duplicates of number 4
-                        while (front < back && num[back] == quadruplet[3]) --back;
+                        while (front < back && num[back] == b) --back;
                 
                     }
                 }
