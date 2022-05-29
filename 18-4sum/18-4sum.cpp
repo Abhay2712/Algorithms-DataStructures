@@ -1,13 +1,12 @@
 class Solution {
 public:
    vector<vector<int>> fourSum(vector<int>& num, int target) {
-         vector<vector<int> > res;
-        
-        if (num.empty())
-            return res;
+        vector<vector<int> > res;
         int n = num.size(); 
+        if (n<4)
+            return res;
+        
         sort(num.begin(),num.end());
-    
         for (int i = 0; i < n; i++) {
         
             int target_3 = target - num[i];
