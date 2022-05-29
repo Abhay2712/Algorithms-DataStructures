@@ -4,7 +4,6 @@ public:
         int start=lower_bound(nums.begin(),nums.end(),target)-nums.begin();
         int end=upper_bound(nums.begin(),nums.end(),target)-nums.begin();
         if(start==end) return {-1,-1};
-        cout<<start<<end;
         return {start,end-1};
     }
 };
