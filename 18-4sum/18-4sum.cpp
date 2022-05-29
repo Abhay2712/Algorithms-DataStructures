@@ -8,20 +8,15 @@ public:
         
         sort(num.begin(),num.end());
         for (int i = 0; i < n; i++) {
-        
-            // int target_3 = target - num[i];
-        
+            int target_3 = target - num[i];
             for (int j = i + 1; j < n; j++) {
-            
-                int target_2 = target-num[i]- num[j];
+                int target_2 = target_3- num[j];
             
                 int front = j + 1;
                 int back = n - 1;
-            
                 while(front < back) {
                 
                     int two_sum = num[front] + num[back];
-                
                     if (two_sum < target_2) front++;
                 
                     else if (two_sum > target_2) back--;
@@ -33,7 +28,7 @@ public:
                         quadruplet[1] = num[j];
                         quadruplet[2] = num[front];
                         quadruplet[3] = num[back];
-                        res.push_back(quadruplet);
+                        res.push_back({num[i],num[j],num[front],num[back]});
                     
                         // Processing the duplicates of number 3
                         while (front < back && num[front] == quadruplet[2]) ++front;
