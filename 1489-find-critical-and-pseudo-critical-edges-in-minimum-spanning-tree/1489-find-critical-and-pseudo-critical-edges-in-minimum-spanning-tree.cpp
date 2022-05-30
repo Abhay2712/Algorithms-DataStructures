@@ -21,7 +21,7 @@ public:
             {
                 critical.push_back(edges[i][3]);
             }
-            else if(original_cost==buildmst(n,edges,-1,i))    //else if we get the same cost as original
+            else if(original_cost==buildmst(n,edges,-1,i))   //if it's not critical and we get the same cost as original
                                                             //this means that the edge is appearing in some
                                                             //MST but not in all 
             {                                              
@@ -47,7 +47,7 @@ public:
     }
     
     //function to get cost from building MST with some blocked edges
-    int buildmst(int n,vector<vector<int>>& edges,int blocked_edge,int pre_edge)
+    int buildmst(int n,vector<vector<int>>& edges,int blocked_edge,int include_edge)
     {
         vector<int> par(n);
         for(int i=0;i<n;i++)
@@ -55,14 +55,18 @@ public:
             par[i]=i;
         }
         int sum=0;
-        if(pre_edge!=-1)
+        
+        //start by taking the include edge if it exists
+        if(include_edge!=-1)
         {
-            sum+=edges[pre_edge][2];
-            Union(par,edges[pre_edge][0],edges[pre_edge][1]);
+            sum+=edges[include_edge][2];
+            Union(par,edges[include_edge][0],edges[include_edge][1]);
         }
-        for(int i=0;i<edges.size();i++)//mst
+        
+        //take the remaining edges 
+        for(int i=0;i<edges.size();i++)
         {
-            if(i==blocked_edge)
+            if(i==blocked_edge)     //skip if blocked
                 continue;
             int pu=find(par,edges[i][0]),pv=find(par,edges[i][1]);
             if(pu!=pv)
@@ -71,6 +75,8 @@ public:
                 sum+=edges[i][2];
             }
         }
+        
+        // if all nodes not connected return a very large number so that we don't consider it.
         for(int i=0;i<n;i++)
         {
             if(find(par,i)!=find(par,0))
