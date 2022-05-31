@@ -9,13 +9,6 @@ class Solution {
         // code here
         
         if(N & N-1 | N==0) return -1;
-        
-        // int pos=1;
-        // while(N){
-        //     if(N%2) return pos;
-        //     N/=2;
-        //     pos++;
-        // }
         return (int)log2(N)+1;
     }
 };
