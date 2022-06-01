@@ -4,7 +4,6 @@ public:
         
         int i=0,j=1;
         while(j<nums.size()){
-            cout<<i<<j<<" ";
             if(nums[i]==0){
                 while(j<nums.size() && !nums[j]){
                     j++;
