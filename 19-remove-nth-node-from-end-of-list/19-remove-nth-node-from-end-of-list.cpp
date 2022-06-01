@@ -16,8 +16,7 @@ public:
         while(count > 0)
         {
             fast = fast->next; count--;
-        }
-        
+        }  
         if(fast == NULL) return head->next; // edge case handled
         
         while(fast->next!=NULL)
