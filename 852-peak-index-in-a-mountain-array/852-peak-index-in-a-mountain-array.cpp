@@ -1,9 +1,21 @@
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
-        for(int i=1;i<arr.size()-1;i++){
-            if(arr[i]>arr[i-1]  && arr[i]>arr[i+1]) return i;
+        int start = 0;
+        int end = arr.size()-1;
+        int ans;
+        while(start<end) {
+            int mid = start+(end-start)/2;
+            if(arr[mid]>arr[mid+1] && arr[mid]>arr[mid-1]) {
+                ans = mid;
+            }
+            if(arr[mid]<arr[mid+1]) {
+                start = mid+1;
+            }
+            else {
+                end = mid;
+            }
         }
-        return -1;
+        return ans;
     }
 };
