@@ -24,7 +24,6 @@ public:
         for(int i=0;i<n;i++){
             if(dp1[i]!=1 && dp2[i]!=1)
                 maxi=max(maxi,dp1[i]+dp2[i]-1);
-            // cout<<dp1[i]<<" "<<dp2[i]<<"\n";
         }
         return n-maxi;
     }
