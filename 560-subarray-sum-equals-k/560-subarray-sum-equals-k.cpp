@@ -1,27 +1,16 @@
-class Solution
-{
+class Solution {
 public:
-    int subarraySum(vector<int> &nums, int k)
-    {
-        int n = nums.size();
-        int sum = 0;
-        vector<int>prefixSum(n);
-        map<int, int> sumFreq;
-        
-        for (int i = 0; i < n; i++)
-        {
-            sum += nums[i];
-            prefixSum[i] = sum;
-            sumFreq[sum]++;
+    int subarraySum(vector<int>& nums, int k) {
+        int ans=0,sm=0;
+        unordered_map<int,int>mp;
+        mp[0]++;
+        for(int i=0;i<nums.size();i++){
+            sm+=nums[i];
+            int x=sm;
+            if(mp.find(x-k)!=mp.end())
+            ans+=mp[x-k];
+            mp[x]++;
         }
-        
-        int res = 0;
-        for (int i = 0; i < n; i++)
-        {
-            int find = k + prefixSum[i] - nums[i];
-            res += sumFreq[find];
-            sumFreq[prefixSum[i]]--;
-        }
-        return res;
+        return ans;
     }
 };
