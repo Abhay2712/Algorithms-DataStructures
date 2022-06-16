@@ -5,6 +5,7 @@ public:
     {
         if (!root)
             return root;
+        
         queue<Node*> q;
         q.push(root);
         q.push(NULL);
