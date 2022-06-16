@@ -39,7 +39,6 @@ class Solution
                 profit+=(double)arr[i].value*(double)(W)/(double)arr[i].weight;
                 break;
             }
-            if(W==0)break;
         }
         return profit;
     }
