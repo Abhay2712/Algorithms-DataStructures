@@ -1,37 +1,31 @@
 class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        // edge case: start or end not accessible
-        if (grid[0][0] || grid.back().back()) return -1;
-        // support variables
-        int res = 2, len = 1, maxX = grid[0].size() - 1, maxY = grid.size() - 1;
-        queue<pair<int, int>> q;
-        // edge case: single cell matrix
-        if (!maxX && !maxY) return 1 - (grid[0][0] << 1);
-        // adding the starting point
-        q.push({0, 0});
-        // marking start as visited
-        grid[0][0] = -1;
-        while (len) {
-            while (len--) {
-                // reading and popping the coordinates on the front of the queue
-                auto [cx, cy] = q.front();
-                q.pop();
-                for (int x = max(0, cx - 1), lmtX = min(cx + 1, maxX); x <= lmtX; x++) {
-                    for (int y = max(0, cy - 1), lmtY = min(cy + 1, maxY); y <= lmtY; y++) {
-                        // check if we reached the target
-                        if (x == maxX && y == maxY) return res;
-                        // marking it as visited and adding it to the q if it was still a valid cell
-                        if (!grid[y][x]) {
-                            grid[y][x] = -1;
-                            q.push({x, y});
-                        }
-                    }
+        int res = 1;
+        int row = grid.size();
+        if (row == 0) return -1;
+        int col = grid[0].size();
+        if (col == 0 ) return -1;
+        if (grid[0][0] != 0 | grid[row-1][col-1] != 0) return -1;
+        
+        queue<pair<int, int>> queue;
+        queue.push(make_pair(0,0));
+        vector<vector<int>> directions = {{1,1}, {0,1},{1,0},{0,-1},{-1,0},{-1, -1},{1, -1},{-1, 1}};
+        grid[0][0] = 1;
+        while(!queue.empty()){
+            auto curr = queue.front();
+            int x = curr.first, y = curr.second;
+            if( x == row -1 && y == col -1) return grid[x][y];
+
+            for(auto direction : directions){
+                int nx = x + direction[0];
+                int ny = y + direction[1];
+                if(nx >= 0 && nx < row && ny >= 0 && ny < col && grid[nx][ny] == 0){
+                    queue.push(make_pair(nx,ny));
+                    grid[nx][ny] = grid[x][y] + 1;
                 }
             }
-            // preparing for the next loop
-            res++;
-            len = q.size();
+            queue.pop();
         }
         return -1;
     }
