@@ -13,14 +13,6 @@ public:
         Node *get(char ch){
             return links[ch-'a'];
         }
-        
-        void setEnd(){
-            flag=1;
-        }
-        
-        bool isEnd(){
-            return flag;
-        }
     };
     
     Node *root;
