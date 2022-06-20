@@ -37,7 +37,7 @@ public:
             }
             node=node->get(i);
         }
-        node->setEnd();
+        node->flag=1;
     }
     
     bool search(string word) {
@@ -49,7 +49,7 @@ public:
             else node=node->get(i);
             
         }
-        return node->isEnd();
+        return node->flag;
     }
     
     bool startsWith(string prefix) {
