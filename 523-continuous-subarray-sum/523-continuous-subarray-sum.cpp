@@ -1,13 +1,26 @@
-class Solution {
+class Solution 
+{
 public:
-    bool checkSubarraySum(vector<int>& nums, int k) {
-        int n=nums.size(), pretemp=0, sum=0;
-        unordered_map<int,int> mods;
-        for (int i=0; i<n; i++){
-            sum = (sum + nums[i]) % k;  // [edited]
-            if (mods[sum]) return true;
-            mods[pretemp] ++;
-            pretemp = sum;
+    bool checkSubarraySum(vector<int>& nums, int k) 
+    {
+        unordered_map<int,int>m;
+        int rem=0;
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            rem=(rem+nums[i])%k;
+            if(rem==0 && i>0)
+            {
+                return true;
+            }
+            if(m.find(rem)==m.end())
+            {
+                m[rem]=i;
+            }
+            else if(i-m[rem]>=2)
+            {
+                return true;
+            }
         }
         return false;
     }
