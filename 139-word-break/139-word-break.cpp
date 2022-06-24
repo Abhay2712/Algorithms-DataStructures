@@ -1,6 +1,6 @@
 class Solution {
- map <string,bool> m;
 public:
+    unordered_map<string,bool>m;
     bool wordBreak(string s, vector<string>& wordDict) {
         if(find(wordDict.begin(),wordDict.end(),s)!=wordDict.end())
             return true;
