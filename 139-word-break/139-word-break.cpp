@@ -8,9 +8,8 @@ public:
             return m[s];
         for(int i=1;i<s.size();i++){
             string left = s.substr(0,i);
-                 cout<<left<<"#";
             if(find(wordDict.begin(),wordDict.end(),left)!=wordDict.end() && wordBreak(s.substr(i),wordDict)){
-                  m[s]=true;
+                m[s]=true;
                 return true;
             }
         }
