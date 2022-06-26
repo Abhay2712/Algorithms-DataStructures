@@ -92,14 +92,14 @@ Node *buildTree(string str) {
 
 class Solution {
   public:
-    unsigned int countNodes(struct Node* root)
+    int countNodes(struct Node* root)
     {
         if (root == NULL)
             return (0);
         return (1 + countNodes(root->left) + countNodes(root->right));
     }
   
-    bool isCompleteUtil (struct Node* root,unsigned int index,unsigned int number_nodes)
+    bool isCompleteUtil (struct Node* root,int index,int number_nodes)
     {
         if (root == NULL) return (true);
      
@@ -130,8 +130,8 @@ class Solution {
     }
     
     bool isHeap(struct Node* root) {
-        unsigned int node_count = countNodes(root);
-        unsigned int index = 0;
+        int node_count = countNodes(root);
+        int index = 0;
      
         if (isCompleteUtil(root, index,node_count) && isHeapUtil(root))
             return true;
