@@ -14,7 +14,7 @@ public:
             if(solve(i,j,adj,color)){
                 color[i]=j;
                 if(subfun(i+1,n,adj,color)) return true;
-                color[i]=0;
+                // color[i]=0; backtracking is not needed as colours are 4 and max paths are 3 i.e. there will always be a satisfiable path
             }
         }
         return false;
