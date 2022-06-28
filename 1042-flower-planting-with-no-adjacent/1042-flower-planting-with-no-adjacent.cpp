@@ -14,7 +14,7 @@ public:
             if(solve(i,j,adj,color)){
                 color[i]=j;
                 if(subfun(i+1,n,adj,color)) return true;
-                // if(i!=n-2) color[i]=0;
+                color[i]=0;
             }
         }
         return false;
