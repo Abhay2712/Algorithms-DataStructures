@@ -14,8 +14,8 @@ public:
     vector<int> shuffle() {
         vector<int> result(nums);
         for (int i = 0;i < result.size();i++) {
-            int pos = rand()%(result.size()-i);
-            swap(result[i+pos], result[i]);
+            int pos = rand()%(result.size());
+            swap(result[pos], result[i]);
         }
         return result;
     }
