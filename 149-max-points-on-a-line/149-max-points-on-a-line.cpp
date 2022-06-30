@@ -7,10 +7,10 @@ public:
             int same = 1;
             int localmax = 0;
             for(int j=i+1;j<points.size();++j){
-                if(points[i][0] == points[j][0] && points[i][1]==points[j][1]){
-                    same++;
-                }
-                else if(points[i][0]==points[j][0]){
+                // if(points[i][0] == points[j][0] && points[i][1]==points[j][1]){
+                //     same++;
+                // }
+                if(points[i][0]==points[j][0]){
                     h[INT_MAX]++;
                 }
                 else{
