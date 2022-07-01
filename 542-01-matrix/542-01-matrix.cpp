@@ -24,7 +24,8 @@ public:
         vector<pair<int,int>> dirs{{0,1},{1,0},{0,-1},{-1,0}};
         
         while(!q.empty()){
-            auto cur = q.front(); q.pop();
+            auto cur = q.front(); 
+            q.pop();
 			// position of element whose result is known
             int curx = cur.first;
             int cury = cur.second;
