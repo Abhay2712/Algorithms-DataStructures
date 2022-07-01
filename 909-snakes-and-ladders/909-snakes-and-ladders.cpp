@@ -26,7 +26,7 @@ public:
                 for(int k=1;k<=6;k++)
                 {
                     next=val+k;
-                    int row=(n-1)-  (next-1)/n;
+                    int row=(n-1)-(next-1)/n;
                     int col=(next-1)%n;
                     if((n-1-row) %2)
                     {
@@ -35,16 +35,14 @@ public:
                        col= n-1-col;
                     }
                     
-                   
                     //there can be ladder or snake
                     if(board[row][col]!=-1)
                         next=board[row][col];
                     if(next==toReach){
                         return moves+1;
                     }
-                    if(s.count(next))
-                        continue;
-                     s.insert(next);
+                    if(s.count(next)) continue;
+                    s.insert(next);
                     q.push(next);
                 }
             }
