@@ -26,7 +26,6 @@ public:
                 for(int k=1;k<=6;k++)
                 {
                     next=val+k;
-                    next=min(next,toReach);
                     int row=(n-1)-  (next-1)/n;
                     int col=(next-1)%n;
                     if((n-1-row) %2)
