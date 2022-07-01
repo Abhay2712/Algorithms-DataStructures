@@ -11,9 +11,11 @@ public:
         queue<pair<int, int>> queue;
         queue.push(make_pair(0,0));
         vector<vector<int>> directions = {{1,1}, {0,1},{1,0},{0,-1},{-1,0},{-1, -1},{1, -1},{-1, 1}};
+        
         grid[0][0] = 1;
         while(!queue.empty()){
             auto curr = queue.front();
+            queue.pop();
             int x = curr.first, y = curr.second;
             if( x == row -1 && y == col -1) return grid[x][y];
 
@@ -25,7 +27,7 @@ public:
                     grid[nx][ny] = grid[x][y] + 1;
                 }
             }
-            queue.pop();
+            
         }
         return -1;
     }
