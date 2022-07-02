@@ -1,19 +1,14 @@
 class Solution {
 public:
-    int maxArea(int h, int w, vector<int>& hor, vector<int>& ver) {
-        sort(hor.begin(),hor.end());
-        sort(ver.begin(),ver.end());
-        int vmax=max(ver[0],w-ver[ver.size()-1]),hmax=max(hor[0],h-hor[hor.size()-1]);
-        
-        for(int i=0;i<ver.size()-1;i++){
-            vmax=max(vmax,ver[i+1]-ver[i]);
-        }
-        
-        for(int i=0;i<hor.size()-1;i++){
-            hmax=max(hmax,hor[i+1]-hor[i]);
-        }
-        long res=(long)hmax*(long)vmax;
-        long rem=1e9+7;
-        return (res%rem);
-    }
+    int maxArea(int h, int w, vector<int>& hCuts, vector<int>& vCuts) {
+    sort(begin(hCuts), end(hCuts));
+    sort(begin(vCuts), end(vCuts));
+    auto max_h = max(hCuts[0], h - hCuts.back());
+    auto max_v = max(vCuts[0], w - vCuts.back());
+    for (auto i = 0; i < hCuts.size() - 1; ++i)
+        max_h = max(max_h, hCuts[i + 1] - hCuts[i]);
+    for (auto i = 0; i < vCuts.size() - 1; ++i)
+        max_v = max(max_v, vCuts[i + 1] - vCuts[i]);        
+    return (long)max_h * max_v % 1000000007;
+}
 };
