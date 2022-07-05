@@ -19,15 +19,12 @@ public:
                     int x=temp[0]+dirs[i][0];
                     int y=temp[1]+dirs[i][1];
                     
-                    if(x<0 || y<0 || x>=n || y>=m ) {
-                        continue;}
-                    
-                    if((x==0 || y==0 || x==n-1 || y==m-1) && maze[x][y]=='.') return d;
-                    else if(x>0 && y>0 && x<n-1 && y<m-1 && maze[x][y]=='.'){
+                    if(x<0 || y<0 || x>=n || y>=m || maze[x][y]=='+') continue;
+                    else if(x==0 || y==0 || x==n-1 || y==m-1) return d;
+                    else if(x>0 && y>0 && x<n-1 && y<m-1){
                         maze[x][y]='+';
                         q.push({x,y});
                     }
-                    
                 }
             }
         }
