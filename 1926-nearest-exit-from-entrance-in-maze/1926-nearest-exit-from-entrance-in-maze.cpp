@@ -15,9 +15,9 @@ public:
             while(p-- >0){
                 vector<int>temp=q.front();
                 q.pop();
-                for(auto i:dirs){
-                    int x=temp[0]+i[0];
-                    int y=temp[1]+i[1];
+                for(int i=0;i<4;i++){
+                    int x=temp[0]+dirs[i][0];
+                    int y=temp[1]+dirs[i][1];
                     
                     if(x<0 || y<0 || x>=n || y>=m ) {
                         continue;}
