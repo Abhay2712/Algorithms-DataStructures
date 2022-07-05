@@ -36,7 +36,6 @@ public:
         
         int d = 0; // dist
         int mindist = INT_MAX; // to store minimum distance
-        
         vector<vector<int>> dir = {{1,0}, {0,1}, {-1,0}, {0,-1}};
         
         while (!q.empty()){
@@ -50,9 +49,10 @@ public:
                     int x = dir[h][0] + a.first;
                     int y = dir[h][1] + a.second;
                     
-                    if (x>=0 and x<grid.size() and y>=0 and y<grid[0].size() and grid[x][y] == 1) { 
+                    if (x>=0 && x<grid.size() && y>=0 and y<grid[0].size() && grid[x][y] == 1) { 
                         // if the neighbor is 1, then check if its minimum distance
-                        mindist = min(mindist, d);
+                        // mindist = min(mindist, d);
+                        return d;
                     }
 
                     else if (x>=0 and x<grid.size() and y>=0 and y<grid[0].size() and grid[x][y] == 0) { 
