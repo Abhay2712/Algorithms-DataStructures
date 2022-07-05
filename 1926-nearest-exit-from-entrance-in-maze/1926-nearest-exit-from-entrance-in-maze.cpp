@@ -21,7 +21,7 @@ public:
                     
                     if(x<0 || y<0 || x>=n || y>=m || maze[x][y]=='+') continue;
                     else if(x==0 || y==0 || x==n-1 || y==m-1) return d;
-                    else if(x>0 && y>0 && x<n-1 && y<m-1){
+                    else{
                         maze[x][y]='+';
                         q.push({x,y});
                     }
