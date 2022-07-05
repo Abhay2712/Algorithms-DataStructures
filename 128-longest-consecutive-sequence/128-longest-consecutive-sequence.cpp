@@ -11,8 +11,8 @@ public:
             
             else
             {
-                int count = 1;
-                int current_element = nums[i]+1;
+                int count = 0;
+                int current_element = nums[i];
                 
                 while(s.find(current_element) != s.end())
                 {
