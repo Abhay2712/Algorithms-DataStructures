@@ -1,18 +1,19 @@
 class Solution {
 public:
-    int nearestExit(vector<vector<char>>& maze, vector<int>& entrance) {
+    int nearestExit(vector<vector<char>>& maze, vector<int>& e) {
         int n=maze.size();
         int m=maze[0].size();
         queue<vector<int>>q;
-        q.push(entrance);
+        q.push(e);
+        maze[e[0]][e[1]]='+';
         vector<vector<int>>dirs{{-1,0},{1,0},{0,-1},{0,1}};
         int d=0;
-        maze[entrance[0]][entrance[1]]='+';
+        
         while(!q.empty()){
             int p=q.size();
             d++;
             while(p-- >0){
-                auto temp=q.front();
+                vector<int>temp=q.front();
                 q.pop();
                 for(auto i:dirs){
                     int x=temp[0]+i[0];
