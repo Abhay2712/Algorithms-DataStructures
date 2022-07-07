@@ -1,16 +1,16 @@
 class Solution {
 public:
-    bool dfs(int total, int jug1, int jug2, int jug, int target, vector<int>&vis)
+    bool dfs(int total, int jug1, int jug2, int curr, int target, vector<int>&vis)
     {
-        if(jug>total || jug<0 || vis[jug]==1)
+        if(curr>total || curr<0 || vis[curr]==1)
             return false;
-        vis[jug]=1;
-        if(jug == target)
+        vis[curr]=1;
+        if(curr == target)
             return true;
-        bool a = dfs(total, jug1, jug2, jug+jug1, target, vis);
-        bool b = dfs(total, jug1, jug2, jug-jug1, target, vis);
-        bool c = dfs(total, jug1, jug2, jug+jug2, target, vis);
-        bool d = dfs(total, jug1, jug2, jug-jug2, target, vis);
+        bool a = dfs(total, jug1, jug2, curr+jug1, target, vis);
+        bool b = dfs(total, jug1, jug2, curr-jug1, target, vis);
+        bool c = dfs(total, jug1, jug2, curr+jug2, target, vis);
+        bool d = dfs(total, jug1, jug2, curr-jug2, target, vis);
         return a||b||c||d;
     }
     bool canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
