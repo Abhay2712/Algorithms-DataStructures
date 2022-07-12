@@ -15,6 +15,7 @@ public:
     }
     
     bool makesquare(vector<int>&arr) {
+        sort(arr.begin(),arr.end());
         int sum = accumulate(arr.begin(),arr.end(),0);
         if(arr.size() < 4 || sum % 4) return false;   
         vector<bool> vis(arr.size());
