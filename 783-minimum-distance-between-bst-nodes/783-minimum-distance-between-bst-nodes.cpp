@@ -11,20 +11,18 @@
  */
 class Solution {
 public:
-    int diff = INT_MAX;
-    TreeNode *prev = NULL;
-    void dfs(TreeNode *root) {
-        // moving to the left as much as we can
-        if (root->left) dfs(root->left);
-        // if we find at least a node before, we update diff
-        if (prev) diff = min(diff, abs(prev->val - root->val));
-        prev = root;
-        // moving to the right as much as we can
-        if (root->right) dfs(root->right);
+    int ans = INT_MAX;
+    int parent = INT_MAX;
+    void inorder(TreeNode*root) {    
+        if(root == NULL) return;
+        inorder(root->left);
+        ans = min(ans, abs(parent-root->val));
+        parent = root->val;
+        inorder(root->right);
     }
     
     int minDiffInBST(TreeNode* root) {
-        dfs(root);
-        return diff;
+        inorder(root);
+        return ans;
     }
 };
