@@ -16,17 +16,16 @@ public:
         if(!root) return;
         str+=to_string(root->val);
         
-        if(root->left || root->right)
-        {str+='(';
-        if(root->left) {dfs(root->left);}
-        str+=')';
+        if(root->left || root->right){
+            str+='(';
+            dfs(root->left);
+            str+=')';
         }
         if(root->right) {
             str+='(';
             dfs(root->right);
             str+=')';
         }
-        
     }
     
     string tree2str(TreeNode* root) {
