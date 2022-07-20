@@ -2,7 +2,6 @@ class Solution {
 public:
     int subfun(int n,vector<int> &dp){
         if(n==0){
-           // dp[0]=0;
            return 0;
        }
         
