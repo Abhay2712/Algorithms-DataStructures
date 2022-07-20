@@ -2,7 +2,7 @@ class Solution {
 public:
     int subfun(int n,vector<int> &dp){
         if(n==0){
-           dp[0]=0;
+           // dp[0]=0;
            return 0;
        }
         
@@ -15,9 +15,7 @@ public:
             int rem=subfun(n-i*i,dp);
             minvalue=min(minvalue,rem+1);
         }
-        // minvalue+=1;
         return dp[n]=minvalue;
-    // return minvalue;  
     }
     
     int numSquares(int n) {
