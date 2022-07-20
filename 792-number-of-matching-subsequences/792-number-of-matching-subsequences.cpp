@@ -5,7 +5,7 @@ public:
 		for (int i = 0; i < S.size (); ++i) alpha[S[i]-'a'].push_back (i);
 		
         int res = 0;
-		for (const auto& word : words) {
+		for (auto word : words) {
 			int x = -1;
 			bool found = true;
 
