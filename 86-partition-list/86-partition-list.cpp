@@ -1,9 +1,7 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode *left = new ListNode();
-        ListNode *right = new ListNode();
-        
+        ListNode *left = new ListNode(), *right = new ListNode();
         ListNode *leftTail = left, *rightTail = right;
         
         while(head != NULL){
