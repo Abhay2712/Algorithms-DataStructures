@@ -7,7 +7,7 @@ public:
         {
             if(arr[start]==0)
                 return true;
-            arr[start]=-arr[start];
+            arr[start]=-arr[start]; //to mark as visited
             
             return canReach(arr,start+arr[start])||canReach(arr,start-arr[start]);
             
