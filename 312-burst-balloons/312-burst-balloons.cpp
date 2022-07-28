@@ -14,7 +14,6 @@ public:
         {
            int total_cost=MCM(nums,left,k,mem)+MCM(nums,k+1,right,mem)+nums[left-1]*nums[k]*nums[right];  
            max_cost=max(max_cost,total_cost);
-           // mem[left][right]=max_cost;
         }
        return mem[left][right]=max_cost;
     }
