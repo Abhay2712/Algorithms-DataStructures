@@ -13,11 +13,10 @@ public:
         for(int k=left;k<right;k++)//Start iterating from left(1) to right(n-1)
         {
            int total_cost=MCM(nums,left,k,mem)+MCM(nums,k+1,right,mem)+nums[left-1]*nums[k]*nums[right];  
-            
            max_cost=max(max_cost,total_cost);
-           mem[left][right]=max_cost;
+           // mem[left][right]=max_cost;
         }
-       return mem[left][right];
+       return mem[left][right]=max_cost;
     }
     int maxCoins(vector<int>& nums) 
     {
