@@ -12,7 +12,7 @@ public:
         int res=0;
         for(int i:nums)
         {
-            res+=bt(nums,target-i,dp);
+            if(i<=target) res+=bt(nums,target-i,dp);
         }
         return dp[target]=res;
     }
