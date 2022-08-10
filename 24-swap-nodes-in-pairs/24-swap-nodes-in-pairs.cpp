@@ -8,25 +8,22 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution{
 public:
+
     ListNode* swapPairs(ListNode* head) {
-        if(!head || !head->next) return head;
-        ListNode *a=head;
-        ListNode *b=head->next;
-        ListNode *prev=new ListNode;
-        ListNode *temp=prev;
-        while(b){
-            if(b->next)
-                a->next=b->next;
-            else a->next=NULL;
-            b->next=a;
-            prev->next=b;
-            prev=a;
-            if(a->next) a=a->next; else a=NULL;
-            if(a && a->next) b=a->next; else b=NULL;
+        // if head is NULL OR just having a single node, then no need to change anything 
+        if(head == NULL || head -> next == NULL) 
+        {
+            return head;
         }
+            
+        ListNode* temp; // temporary pointer to store head -> next
+        temp = head->next; // give temp what he want
         
-        return temp->next;
+        head->next = swapPairs(head->next->next); // changing links
+        temp->next = head; // put temp -> next to head
+        
+        return temp; // now after changing links, temp act as our head
     }
 };
