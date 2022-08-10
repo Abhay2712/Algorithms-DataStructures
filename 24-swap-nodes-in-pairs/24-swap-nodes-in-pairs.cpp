@@ -18,8 +18,7 @@ public:
             return head;
         }
             
-        ListNode* temp; // temporary pointer to store head -> next
-        temp = head->next; // give temp what he want
+        ListNode* temp=head->next; // give temp what he want
         
         head->next = swapPairs(head->next->next); // changing links
         temp->next = head; // put temp -> next to head
