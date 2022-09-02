@@ -14,9 +14,7 @@ public:
     int count=0;
     void gN(TreeNode *curr, int maxi){
         if(!curr) return;
-        
         if(maxi<=curr->val){
-            cout<<curr->val<<" ";
             count++;
             maxi=curr->val;
         }
